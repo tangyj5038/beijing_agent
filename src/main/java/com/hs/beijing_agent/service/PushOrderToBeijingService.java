@@ -51,6 +51,7 @@ public class PushOrderToBeijingService {
             //3-1-将xml数据保存到本地clinet下的send文件下
             String fileName = System.currentTimeMillis()+".xml";
             FileUtil.saveFileTolocal(String.valueOf(xmlData),Constant.CLIENT_SEND_PATH,fileName);
+            //FileUtil.createXml(String.valueOf(xmlData),Constant.CLIENT_SEND_PATH,fileName);
             //3-2-请求接口更新相关订单状态为正在推送
             String returnUrl = Constant.SERVER_IP + "api/beijing/customer/receive/sent/" + orderId;
             String resultData = client.execute(returnUrl);
