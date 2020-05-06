@@ -21,7 +21,7 @@ public class QuartzJob {
     //1-定时请求要推送给海关的订单
     public void getPushOrderList(){
         try {
-            log.info("PushOrderToBeijingService.pushOrderXmlMessageBiz()  is strating ");
+            log.info("PushOrderToBeijingService.pushOrderXmlMessageBiz()  is starting ");
             PushOrderToBeijingService.pushOrderXmlMessageBiz();
         } catch (IOException e) {
             e.printStackTrace();
@@ -30,7 +30,7 @@ public class QuartzJob {
     //2-定时获取海关返回的信息，并传给业务后台
     public void getPushOrderResponse(){
         try {
-            log.info("PushOrderToBeijingService.handleReceiveMessageBiz()  is strating ");
+            log.info("PushOrderToBeijingService.handleReceiveMessageBiz()  is starting ");
             PushOrderToBeijingService.handleReceiveMessageBiz();
         } catch (IOException e) {
             e.printStackTrace();

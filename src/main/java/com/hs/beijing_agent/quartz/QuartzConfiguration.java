@@ -75,7 +75,7 @@ public class QuartzConfiguration {
         //2-定时获取海关返回的信息，并传给业务后台
         CronTriggerFactoryBean triggerBeanOfGetPushOrderResponse = triggerBeanOfGetPushOrderResponse();
        quartzScheduler.setTriggers(
-               triggerBeanOfGetPushOrderList.getObject(),
+               //triggerBeanOfGetPushOrderList.getObject(),
                triggerBeanOfGetPushOrderResponse.getObject()
                );
 
@@ -88,7 +88,7 @@ public class QuartzConfiguration {
     public CronTriggerFactoryBean triggerBeanOfGetPushOrderList() {
         CronTriggerFactoryBean bean = new CronTriggerFactoryBean();
         bean.setJobDetail(jobDetailOfGetPushOrderList().getObject());
-        bean.setCronExpression("0/5 * * * * ?");    //每分钟执行一次
+        bean.setCronExpression("0/10 * * * * ?");    //每分钟执行一次
         return bean;
     }
     @Bean
@@ -104,7 +104,7 @@ public class QuartzConfiguration {
     public CronTriggerFactoryBean triggerBeanOfGetPushOrderResponse() {
         CronTriggerFactoryBean bean = new CronTriggerFactoryBean();
         bean.setJobDetail(jobDetailOfGetPushOrderResponse().getObject());
-        bean.setCronExpression("0/5 * * * * ?");    //每分钟执行一次
+        bean.setCronExpression("5/10 * * * * ?");    //每分钟执行一次
         return bean;
     }
     @Bean
